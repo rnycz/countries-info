@@ -1,0 +1,54 @@
+<html lang="en"> 
+    <head> 
+        <script src="script.js"></script> 
+        <link rel="stylesheet" href="style.css" /> 
+        <meta charset="UTF-8" /> 
+        <meta name="viewport" 
+              content="width=device-width, initial-scale=1.0" /> 
+        <title>Country API</title> 
+    </head> 
+    <body onload="showData()"> 
+        <h1>Countries of the World (<span id="sum"></span>)</h1>
+        <div class="filters-container">
+            <form>
+                <label for="country" class="radio-style">
+                    <input type="radio" id="country" name="filter-choose" value="0">
+                    Country<span class="radio-mark"></span>
+                </label>
+                <label for="country-code-alpha3" class="radio-style">
+                    <input type="radio" id="country-code-alpha3" name="filter-choose" value="1">
+                    Country code alpha-3<span class="radio-mark"></span>
+                </label>
+                <label for="capital" class="radio-style">
+                    <input type="radio" id="capital" name="filter-choose" value="2" >
+                    Capital<span class="radio-mark"></span>
+                </label>
+                <label for="region" class="radio-style">
+                    <input type="radio" id="region" name="filter-choose" value="3">
+                    Region<span class="radio-mark"></span>
+                </label>
+                <label for="currency" class="radio-style">
+                    <input type="radio" id="currency" name="filter-choose" value="5">
+                    Currency<span class="radio-mark"></span>
+                </label>
+                <label for="language" class="radio-style">
+                    <input type="radio" id="language" name="filter-choose" value="6">
+                    Official language<span class="radio-mark"></span>
+                </label><br />
+                <input type="text" id="filter" onkeyup="filterData()" placeholder="Search for...">
+                <input type="button" class="clear-btn" onclick="clearFilter()" value="Clear filters">
+            </form> 
+        </div>              
+        <table id="country-table">
+            <tr>
+                <th>Country</th>
+                <th>Country code alpha-3</th>
+                <th>Capital</th>
+                <th>Region</th>
+                <th>Population</th>
+                <th>Currency</th>
+                <th>Official language</th>
+            </tr>
+        </table>
+    </body> 
+</html> 
