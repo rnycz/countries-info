@@ -9,8 +9,9 @@ fetch(url)
       const table = document.getElementById("country-table");
       const tr = document.createElement("tr");
       const sum = document.getElementById("sum");
+      const flag = country.alpha3Code.toLowerCase();
       const text = `
-      <td>${country.name}</td>
+      <td><img src="https://restcountries.eu/data/${flag}.svg"> ${country.name}</td>
       <td>${country.alpha3Code}</td>
       <td>${country.capital}</td>
       <td>${country.region}</td>
