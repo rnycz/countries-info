@@ -1,29 +1,31 @@
 
 function showData(){
-const url = 'https://restcountries.eu/rest/v2/all';
+const url = 'https://restcountries.com/v2/all';
 fetch(url)
 .then((resp) => resp.json())
-.then(function(data) {
+.then(data => {
     for(var i = 0; i<data.length; i++){
       const country = data[i];
-      const table = document.getElementById("country-table");
-      const tr = document.createElement("tr");
-      const sum = document.getElementById("sum");
-      const flag = country.alpha3Code.toLowerCase();
-      const text = `
-      <td><img src="https://restcountries.eu/data/${flag}.svg"> ${country.name}</td>
-      <td>${country.alpha3Code}</td>
-      <td>${country.capital}</td>
-      <td>${country.region}</td>
-      <td>${country.population}</td>
-      <td>${country.currencies[0].code} - ${country.currencies[0].name}</td>
-      <td>${country.languages[0].name}</td>`;
-      tr.innerHTML = text;
-      sum.innerHTML = i;
-      table.appendChild(tr);
+      country.currencies?.forEach(curr => {
+          const table = document.getElementById("country-table");
+          const tr = document.createElement("tr");
+          const sum = document.getElementById("sum");
+          const text = `
+          <td><img src="${country.flags.png}" alt="country flag" /> ${country.name}</td>
+          <td>${country.alpha3Code}</td>
+          <td>${country.capital}</td>
+          <td>${country.region}</td>
+          <td>${country.population}</td>
+          <td>${curr.symbol} - ${curr.code} - ${curr.name}</td>
+          <td>${country.languages[0].name}</td>`;
+          
+          tr.innerHTML = text;
+          sum.innerHTML = i;
+          table.appendChild(tr);  
+      })
     }
 })
-.catch(function(error) {
+.catch(error => {
   console.log(error);
 });
 }

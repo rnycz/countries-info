@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
 * {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 body {
@@ -22,6 +23,7 @@ h1 {
   width: 14.2%;
   background-color: #383838;
   color: white;
+  position: -webkit-sticky;
   position: sticky;
   top: 0;
   border: none;
@@ -40,11 +42,12 @@ h1 {
 }
 
 #country-table img {
-  width: 30px;
+  width: 25px;
 }
 
 #country-table img:hover {
   position: absolute;
+  -webkit-transition: 0.5s;
   transition: 0.5s;
   width: 300px;
 }
@@ -79,6 +82,7 @@ h1 {
 }
 
 .filters-container .clear-btn:hover {
+  -webkit-transition: all 0.5s;
   transition: all 0.5s;
   background-color: chocolate;
   color: white;
@@ -154,3 +158,4 @@ h1 {
     width: 100%;
   }
 }
+/*# sourceMappingURL=style.css.map */
